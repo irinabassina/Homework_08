@@ -35,13 +35,16 @@ void OrderedArray(int[,] arrayToChange)
 {
     for (int i = 0; i < arrayToChange.GetLength(0); i++)
     {
-        for (int j = 0; j < arrayToChange.GetLength(1) - 1; j++)
+        for (int j = 0; j < arrayToChange.GetLength(1); j++)
         {
-            if (arrayToChange[i, j] < arrayToChange[i, j + 1])
+            for (int z = 0; z < arrayToChange.GetLength(1) - 1; z++)
             {
-                int temp = arrayToChange[i, j + 1];
-                arrayToChange[i, j + 1] = arrayToChange[i, j];
-                arrayToChange[i, j] = temp;
+                if (arrayToChange[i, z] < arrayToChange[i, z + 1])
+                {
+                    int temp = arrayToChange[i, z + 1];
+                    arrayToChange[i, z + 1] = arrayToChange[i, z];
+                    arrayToChange[i, z] = temp;
+                }
             }
         }
     }
